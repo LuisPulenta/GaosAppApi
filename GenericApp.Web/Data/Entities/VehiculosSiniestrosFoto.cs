@@ -11,7 +11,7 @@ namespace GenericApp.Web.Data.Entities
         public string LINKFOTO { get; set; }
         public string CORRESPONDEA { get; set; }
         public string ImageFullPath => string.IsNullOrEmpty(LINKFOTO)
-        ? $"http://190.111.249.225/RowingAppApi/images/Siniestros/noimage.png"
-        : $"http://190.111.249.225/RowingAppApi{LINKFOTO.Substring(1)}";
+        ? $"http://190.111.249.225/GaosAppApiApi/images/Siniestros/noimage.png"
+        : $"http://190.111.249.225/GaosAppApiApi{LINKFOTO.Substring(1)}";
     }
 }

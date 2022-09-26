@@ -27,12 +27,12 @@ namespace GenericApp.Web.Data.Entities
 
         public string LinkAdjunto1 { get; set; }
         public string ImageFullPath1 => string.IsNullOrEmpty(LinkAdjunto1)
-        ? $"http://190.111.249.225/RowingAppApi/images/Novedades/noimage.png"
-        : $"http://190.111.249.225/RowingAppApi{LinkAdjunto1.Substring(1)}";
+        ? $"http://190.111.249.225/GaosAppApiApi/images/Novedades/noimage.png"
+        : $"http://190.111.249.225/GaosAppApiApi{LinkAdjunto1.Substring(1)}";
 
         public string LinkAdjunto2 { get; set; }
         public string ImageFullPath2 => string.IsNullOrEmpty(LinkAdjunto2)
-        ? $"http://190.111.249.225/RowingAppApi/images/Novedades/noimage.png"
-        : $"http://190.111.249.225/RowingAppApi{LinkAdjunto1.Substring(1)}";
+        ? $"http://190.111.249.225/GaosAppApiApi/images/Novedades/noimage.png"
+        : $"http://190.111.249.225/GaosAppApiApi{LinkAdjunto1.Substring(1)}";
     }
 }
