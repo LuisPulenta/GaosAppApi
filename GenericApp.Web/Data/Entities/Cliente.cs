@@ -7,5 +7,6 @@ namespace GenericApp.Web.Data.Entities
         [Key]
         public int NROCLIENTE { get; set; }
         public string NOMBRE { get; set; }
+        public int IdEmpresa { get; set; }
     }
 }

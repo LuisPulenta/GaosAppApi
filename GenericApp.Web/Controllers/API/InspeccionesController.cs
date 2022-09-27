@@ -25,8 +25,8 @@ namespace GenericApp.Web.Controllers.API
         }
 
         [HttpGet]
-        [Route("GetClientes")]
-        public async Task<IActionResult> GetClientes()
+        [Route("GetClientes/{idempresa}")]
+        public async Task<IActionResult> GetClientes(int idempresa)
         {
             if (!ModelState.IsValid)
             {
@@ -34,6 +34,7 @@ namespace GenericApp.Web.Controllers.API
             }
 
             var clientes = await _dataContext.Clientes
+                .Where(o => (o.IdEmpresa == idempresa))
            .OrderBy(o => o.NOMBRE)
            .ToListAsync();
             if (clientes == null)

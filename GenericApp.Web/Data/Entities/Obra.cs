@@ -14,10 +14,8 @@ namespace GenericApp.Web.Data.Entities
         public string SUPERVISORE { get; set; }
         public string CodigoEstado { get; set; }
         public string Modulo { get; set; }
-        public string GrupoAlmacen { get; set; }
-        public string GrupoCausante { get; set; }
         public ICollection<ObrasDocumento> ObrasDocumentos { get; set; }
-        public int HabilitaReclamosAPP { get; set; }
         public int? CORRESPONDEABONADOS { get; set; }
+        public int IdCliente { get; set; }
     }
 }

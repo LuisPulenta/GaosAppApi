@@ -62,18 +62,7 @@ namespace GenericApp.Web.Controllers.API
                 LINK= imageUrl1,
                 FECHA=request.FECHA,
                 NROOBRA=request.NROOBRA,
-                IDObrasPostes = request.IDObrasPostes,
                 OBSERVACION=request.OBSERVACION,
-                Estante=request.Estante,
-                GeneradoPor=request.GeneradoPor,
-                MODULO=request.MODULO,
-                NroLote=request.NroLote,
-                Sector=request.Sector,
-                Latitud = request.Latitud,
-                Longitud = request.Longitud,
-                FechaHsFoto = request.FechaHsFoto,
-                TipoDeFoto = request.TipoDeFoto,
-                DireccionFoto = request.DireccionFoto
     };
 
             _context.ObrasDocumentos.Add(obraDocumento);
@@ -114,18 +103,7 @@ namespace GenericApp.Web.Controllers.API
                 LINK = imageUrl1,
                 FECHA = request.FECHA,
                 NROOBRA = request.NROOBRA,
-                IDObrasPostes = request.IDObrasPostes,
                 OBSERVACION = request.OBSERVACION,
-                Estante = request.Estante,
-                GeneradoPor = request.GeneradoPor,
-                MODULO = request.MODULO,
-                NroLote = request.NroLote,
-                Sector = request.Sector,
-                Latitud = request.Latitud,
-                Longitud = request.Longitud,
-                FechaHsFoto = request.FechaHsFoto,
-                TipoDeFoto = request.TipoDeFoto,
-                DireccionFoto = request.DireccionFoto
             };
 
             _context.ObrasDocumentos.Add(obraDocumento);
@@ -155,27 +133,7 @@ namespace GenericApp.Web.Controllers.API
             return Ok("ObrasDocumento borrado");
         }
 
-        [HttpPost]
-        [Route("GetObrasDocumentos/{IDObrasPostes}")]
-        public async Task<IActionResult> GetObrasDocumentos(int IDObrasPostes)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest();
-            }
-
-            var obrasDocumentos = await _context.ObrasDocumentos
-            .Where(o => (o.IDObrasPostes == IDObrasPostes))
-           .OrderBy(o => o.TipoDeFoto)
-           .ToListAsync();
-
-            if (obrasDocumentos == null)
-            {
-                return BadRequest("No hay Fotos para este Ticket.");
-            }
-
-            return Ok(obrasDocumentos);
-        }
+        
     }
 }
 

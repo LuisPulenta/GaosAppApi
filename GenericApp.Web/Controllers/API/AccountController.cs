@@ -113,75 +113,11 @@ namespace GenericApp.Web.Controllers.API
             return Ok();
         }
 
-        [HttpGet]
-        [Route("GetObrasEnergia")]
-        public async Task<IActionResult> GetObrasEnergia()
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest();
-            }
-
-            var obras = await _dataContext.Obras
-            .Include(p => p.ObrasDocumentos)
-           .Where(o => (o.Finalizada == 0) 
-           && (o.Modulo == "Energia"))
-           .OrderBy(o => o.NroObra)
-           .ToListAsync();
-            if (obras == null)
-            {
-                return BadRequest("No hay Obras.");
-            }
-            return Ok(obras);
-        }
-
-        [HttpGet]
-        [Route("GetObrasObrasTasa")]
-        public async Task<IActionResult> GetObrasObrasTasa()
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest();
-            }
-
-            var obras = await _dataContext.Obras
-            .Include(p => p.ObrasDocumentos)
-           .Where(o => (o.Finalizada == 0)
-           && (o.Modulo == "ObrasTasa"))
-           .OrderBy(o => o.NroObra)
-           .ToListAsync();
-            if (obras == null)
-            {
-                return BadRequest("No hay Obras.");
-            }
-            return Ok(obras);
-        }
-
-        [HttpGet]
-        [Route("GetObrasRowing")]
-        public async Task<IActionResult> GetObrasRowing()
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest();
-            }
-
-            var obras = await _dataContext.Obras
-            .Include(p => p.ObrasDocumentos)
-           .Where(o => (o.Finalizada == 0)
-           && (o.Modulo == "Rowing"))
-           .OrderBy(o => o.NroObra)
-           .ToListAsync();
-            if (obras == null)
-            {
-                return BadRequest("No hay Obras.");
-            }
-            return Ok(obras);
-        }
+        
 
         [HttpPost]
-        [Route("GetObras/{ProyectoModulo}")]
-        public async Task<IActionResult> GetObras(string ProyectoModulo)
+        [Route("GetObras/{idcliente}")]
+        public async Task<IActionResult> GetObras(int idcliente)
         {
             if (!ModelState.IsValid)
             {
@@ -191,7 +127,7 @@ namespace GenericApp.Web.Controllers.API
             var obras = await _dataContext.Obras
             .Include(p => p.ObrasDocumentos)
            .Where(o => (o.Finalizada == 0)
-           && (o.Modulo == ProyectoModulo))
+           && (o.IdCliente == idcliente))
            .OrderBy(o => o.NroObra)
            .ToListAsync();
             if (obras == null)
@@ -222,51 +158,9 @@ namespace GenericApp.Web.Controllers.API
             return Ok(obras);
         }
 
-        [HttpGet]
-        [Route("GetObrasReclamosRowing")]
-        public IActionResult GetObrasReclamosRowing()
-        {
-            return Ok(_dataContext.Obras
-                .Where(o=> o.HabilitaReclamosAPP==1 && o.Modulo=="Rowing")
-                );
-        }
+        
 
-        [HttpGet]
-        [Route("GetObrasReclamosEnergia")]
-        public IActionResult GetObrasReclamosEnergia()
-        {
-            return Ok(_dataContext.Obras
-                .Where(o => o.HabilitaReclamosAPP == 1 && o.Modulo == "Energia")
-                );
-        }
-
-        [HttpGet]
-        [Route("GetObrasReclamosObrasTasa")]
-        public IActionResult GetObrasReclamosObrasTasa()
-        {
-            return Ok(_dataContext.Obras
-                .Where(o => o.HabilitaReclamosAPP == 1 && o.Modulo == "ObrasTasa")
-                );
-        }
-
-        [HttpPost]
-        [Route("GetObrasReclamos/{ProyectoModulo}")]
-        public IActionResult GetObrasReclamos(string ProyectoModulo)
-        {
-            return Ok(_dataContext.Obras
-                .Where(o => o.HabilitaReclamosAPP == 1 && o.Modulo == ProyectoModulo)
-                );
-        }
-
-        [HttpPost]
-        [Route("GetObrasReclamosTodas")]
-        public IActionResult GetObrasReclamosTodas()
-        {
-            return Ok(_dataContext.Obras
-                .Where(o => o.HabilitaReclamosAPP == 1)
-                );
-        }
-
+        
 
 
         [HttpGet("{id}")]
