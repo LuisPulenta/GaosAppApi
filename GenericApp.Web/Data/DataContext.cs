@@ -10,6 +10,7 @@ namespace GenericApp.Web.Data
         {
         }
         public DbSet<Usuario> Usuarios { get; set; }
+        public DbSet<Empresa> Aempresa { get; set; }
         public DbSet<Obra> Obras { get; set; }
         public DbSet<ObrasPoste> ObrasPostes { get; set; }
         public DbSet<ObrasPosteCajasAPP> ObrasPostesCajasAPP { get; set; }

@@ -23,5 +23,6 @@ namespace GenericApp.Web.Data.Entities
         public int? FechaCaduca { get; set; }
         public int? IntentosInvDiario { get; set; }
         public int? OpeAutorizo { get; set; }
+        public int IdEmpresa { get; set; }
     }
 }

@@ -75,7 +75,8 @@ namespace GenericApp.Web.Controllers.API
                 CODIGOGRUPO = user.CODIGOGRUPO,
                 FechaCaduca = user.FechaCaduca,
                 IntentosInvDiario = user.IntentosInvDiario,
-                OpeAutorizo = user.OpeAutorizo
+                OpeAutorizo = user.OpeAutorizo,
+                IdEmpresa=user.IdEmpresa
             };
             return Ok(response);
         }
