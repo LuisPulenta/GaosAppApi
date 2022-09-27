@@ -24,5 +24,6 @@ namespace GenericApp.Web.Data.Entities
         public int? IntentosInvDiario { get; set; }
         public int? OpeAutorizo { get; set; }
         public int IdEmpresa { get; set; }
+        public string FullName => $"{Nombre} {Apellido}";
     }
 }
