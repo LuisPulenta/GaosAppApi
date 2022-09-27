@@ -25,11 +25,11 @@ namespace GenericApp.Web.Controllers.API
         
 
         // GET: api/Users/5
-        [HttpGet("GetCausanteByCodigo/{codigo}")]
-        public async Task<ActionResult<Data.Entities.Causante>> GetCausante2(string codigo)
+        [HttpGet("GetCausanteByCodigo/{codigo}/{idempresa}")]
+        public async Task<ActionResult<Data.Entities.Causante>> GetCausante2(string codigo,int idempresa)
         {
             Data.Entities.Causante causante = await _dataContext.Causantes
-                .FirstOrDefaultAsync(o => (o.codigo.ToLower() == codigo.ToLower()) && (o.grupo == "PPR" || o.grupo == "PPC"));
+                .FirstOrDefaultAsync(o => (o.codigo.ToLower() == codigo.ToLower()) && (o.IdEmpresa == idempresa));
 
             if (causante == null)
             {
