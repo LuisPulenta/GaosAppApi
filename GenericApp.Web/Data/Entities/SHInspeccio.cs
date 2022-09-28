@@ -32,5 +32,7 @@ namespace GenericApp.Web.Data.Entities
         public string DniSR { get; set; }
         public string NombreSR { get; set; }
         public int IDTipoTrabajo { get; set; }
+        public string EstadosChr { get; set; }
+        public int IdEmpresa { get; set; }
     }
 }

@@ -29,7 +29,7 @@ namespace GenericApp.Web.Controllers.API
         public async Task<ActionResult<Data.Entities.Causante>> GetCausante2(string codigo,int idempresa)
         {
             Data.Entities.Causante causante = await _dataContext.Causantes
-                .FirstOrDefaultAsync(o => (o.codigo.ToLower() == codigo.ToLower()) && (o.IdEmpresa == idempresa));
+                .FirstOrDefaultAsync(o => (o.codigo.ToLower() == codigo.ToLower() || o.DNI.ToLower() == codigo.ToLower()) && (o.IdEmpresa == idempresa));
 
             if (causante == null)
             {

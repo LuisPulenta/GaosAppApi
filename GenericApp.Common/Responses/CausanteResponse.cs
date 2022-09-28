@@ -33,5 +33,6 @@ namespace GenericApp.Common.Responses
         public string NotasCausantes { get; set; }
         public string NOTAS { get; set; }
         public int IdEmpresa { get; set; }
+        public string DNI { get; set; }
     }
 }

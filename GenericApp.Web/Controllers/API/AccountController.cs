@@ -35,6 +35,11 @@ namespace GenericApp.Web.Controllers.API
             {
                 return BadRequest("El Usuario no existe.");
             }
+            var empresa = await _dataContext.Aempresa.FirstOrDefaultAsync(o => o.IDEmpresa == user.IdEmpresa);
+            if (empresa.Activo == false)
+            {
+                return BadRequest("Usuario de empresa desactivada.");
+            }
             return Ok(user);
         }
     
