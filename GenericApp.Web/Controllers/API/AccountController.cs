@@ -87,38 +87,38 @@ namespace GenericApp.Web.Controllers.API
         }
 
 
-        [HttpPut("{login}")]
-        [Route("ReactivaUsuario")]
-        public async Task<IActionResult> ReactivaUsuario([FromRoute] string login, [FromBody] UsuarioAutorizaRequest request)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+        //[HttpPut("{login}")]
+        //[Route("ReactivaUsuario")]
+        //public async Task<IActionResult> ReactivaUsuario([FromRoute] string login, [FromBody] UsuarioAutorizaRequest request)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return BadRequest(ModelState);
+        //    }
 
-            if (login != request.Login)
-            {
-                return BadRequest();
-            }
+        //    if (login != request.Login)
+        //    {
+        //        return BadRequest();
+        //    }
 
-            var oldUsuario= await _dataContext.Usuarios.FirstOrDefaultAsync(x => x.Login == request.Login);
+        //    var oldUsuario = await _dataContext.Usuarios.FirstOrDefaultAsync(x => x.Login == request.Login);
 
-            if (oldUsuario == null)
-            {
-                return BadRequest("El Usuario no existe.");
-            }
+        //    if (oldUsuario == null)
+        //    {
+        //        return BadRequest("El Usuario no existe.");
+        //    }
 
-            oldUsuario.Estado=1;
-            oldUsuario.FechaCaduca = request.FechaCaduca;
-            oldUsuario.IntentosInvDiario = 0;
-            oldUsuario.OpeAutorizo = request.IdUsuarioAutoriza;
+        //    oldUsuario.Estado = 1;
+        //    oldUsuario.FechaCaduca = request.FechaCaduca;
+        //    oldUsuario.IntentosInvDiario = 0;
+        //    oldUsuario.OpeAutorizo = request.IdUsuarioAutoriza;
 
-            _dataContext.Usuarios.Update(oldUsuario);
-            await _dataContext.SaveChangesAsync();
-            return Ok();
-        }
+        //    _dataContext.Usuarios.Update(oldUsuario);
+        //    await _dataContext.SaveChangesAsync();
+        //    return Ok();
+        //}
 
-        
+
 
         [HttpPost]
         [Route("GetObras/{idcliente}")]
