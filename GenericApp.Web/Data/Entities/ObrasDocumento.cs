@@ -12,7 +12,7 @@ namespace GenericApp.Web.Data.Entities
         public string LINK { get; set; }
         public DateTime FECHA { get; set; }
         public string ImageFullPath => string.IsNullOrEmpty(LINK)
-        ? $"http://190.111.249.225/GaosAppApiApi/images/Obras/noimage.png"
-        : $"http://190.111.249.225/GaosAppApiApi{LINK.Substring(1)}";
+        ? $"http://keypress.serveftp.net:90/GaosAppApi/images/Obras/noimage.png"
+        : $"http://keypress.serveftp.net:90/GaosAppApi{LINK.Substring(1)}";
     }
 }

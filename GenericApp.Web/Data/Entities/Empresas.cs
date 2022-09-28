@@ -14,7 +14,7 @@ namespace GenericApp.Web.Data.Entities
         public bool Activo { get; set; }
         public string LogoEmpresa { get; set; }
         public string LogoFullPath => string.IsNullOrEmpty(LogoEmpresa)
-       ? $"http://190.111.249.225/GaosAppApiApi/images/Obras/noimage.png"
-       : $"http://190.111.249.225/GaosAppApiApi{LogoEmpresa.Substring(1)}";
+       ? $"http://keypress.serveftp.net:90/GaosAppApi/images/Obras/noimage.png"
+       : $"http://keypress.serveftp.net:90/GaosAppApi{LogoEmpresa.Substring(1)}";
     }
 }

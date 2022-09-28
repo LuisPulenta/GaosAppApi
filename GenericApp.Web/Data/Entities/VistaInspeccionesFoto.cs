@@ -19,8 +19,8 @@ namespace GenericApp.Web.Data.Entities
         public string Cumple { get; set; }
         public string Cliente { get; set; }
         public string ImageFullPath => string.IsNullOrEmpty(LinkFoto)
-        ? $"http://190.111.249.225/GaosAppApiApi/images/Inspecciones/noimage.png"
-        : $"http://190.111.249.225/GaosAppApiApi{LinkFoto.Substring(1)}";
+        ? $"http://keypress.serveftp.net:90/GaosAppApi/images/Inspecciones/noimage.png"
+        : $"http://keypress.serveftp.net:90/GaosAppApi{LinkFoto.Substring(1)}";
 
     }
 }
