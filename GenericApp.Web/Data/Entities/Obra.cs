@@ -17,5 +17,8 @@ namespace GenericApp.Web.Data.Entities
         public ICollection<ObrasDocumento> ObrasDocumentos { get; set; }
         public int? CORRESPONDEABONADOS { get; set; }
         public int IdCliente { get; set; }
+        public string Central { get; set; }
+        public string Direccion { get; set; }
+       
     }
 }

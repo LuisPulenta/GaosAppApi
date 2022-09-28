@@ -15,6 +15,8 @@ namespace GenericApp.Common.Responses
         public string Modulo { get; set; }
         public int? CORRESPONDEABONADOS { get; set; }
         public int IdCliente { get; set; }
+        public string Central { get; set; }
+        public string Direccion { get; set; }
         public int CantObras { get; set; }
         public ICollection<ObraDocumentoResponse> ObrasDocumentos { get; set; }
         public int ObrasDocumentsNumber => ObrasDocumentos == null ? 0 : ObrasDocumentos.Count;
