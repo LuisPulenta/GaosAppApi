@@ -190,5 +190,32 @@ namespace GenericApp.Web.Controllers.API
                 .Where(o => o.CORRESPONDEABONADOS == 1 && o.Modulo == ProyectoModulo)
                 );
         }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> PutUsuario([FromRoute] int id, [FromBody] ChangePasswordRequest request)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            if (id != request.IDUsuario)
+            {
+                return BadRequest();
+            }
+
+            var oldUsuario = await _dataContext.Usuarios.FindAsync(request.IDUsuario);
+
+            if (oldUsuario == null)
+            {
+                return BadRequest("El Usuario no existe.");
+            }
+
+            oldUsuario.Contrasena = request.Password;
+
+            _dataContext.Usuarios.Update(oldUsuario);
+            await _dataContext.SaveChangesAsync();
+            return Ok();
+        }
     }
 }

@@ -5,11 +5,10 @@ namespace GenericApp.Common.Requests
     public class ChangePasswordRequest
     {
         [Required]
-        [StringLength(20, MinimumLength = 6)]
-        public string OldPassword { get; set; }
+        public int IDUsuario { get; set; }
 
         [Required]
         [StringLength(20, MinimumLength = 6)]
-        public string NewPassword { get; set; }
+        public string Password { get; set; }
     }
 }
