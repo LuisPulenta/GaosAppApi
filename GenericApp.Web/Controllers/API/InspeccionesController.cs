@@ -138,8 +138,8 @@ namespace GenericApp.Web.Controllers.API
                 var stream = new MemoryStream(request.ImageArray);
                 var guid = Guid.NewGuid().ToString();
                 var file = $"{guid}.jpg";
-                var folder = "wwwroot\\images\\Inspecciones";
-                var fullPath = $"~/images/Inspecciones/{file}";
+                var folder = "wwwroot\\images\\" + request.Empresa + "\\Inspecciones";
+                var fullPath = $"~/images/" + request.Empresa + "/Inspecciones/{file}";
                 var response = _filesHelper.UploadPhoto(stream, folder, file);
 
                 if (response)

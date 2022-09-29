@@ -6,7 +6,7 @@ namespace GenericApp.Web.Data.Entities
     public class WebSesio
     {
         [Key]
-        public int ID_WS { get; set; }
+        
         public int NROCONEXION { get; set; }
         public string USUARIO { get; set; }
         public string IP { get; set; }
@@ -17,5 +17,7 @@ namespace GenericApp.Web.Data.Entities
         public int? LOGOUTTIME { get; set; }
         public int? CONECTAVERAGE { get; set; }
         public string VersionSistema { get; set; }
+
+        public int ID_WS { get; set; }
     }
 }
