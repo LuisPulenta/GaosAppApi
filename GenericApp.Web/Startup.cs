@@ -78,6 +78,17 @@ namespace GenericApp.Web
                 cfg.UseSqlServer("Server=190.111.249.225;Database=Gsp8Ezn;User Id=gaos;password=ezn2018$bs4s;Trusted_Connection=False;MultipleActiveResultSets=true");
             });
 
+            services.AddDbContext<DataContextRowing>(cfg =>
+            {
+                cfg.UseSqlServer("Server=190.111.249.225;Database=ObrasOT;User Id=obrasot;password=arg$23$row;Trusted_Connection=False;MultipleActiveResultSets=true");
+            });
+
+
+            services.AddDbContext<DataContextFleet>(cfg =>
+            {
+                cfg.UseSqlServer("Server=www.deliveryfleet.com.ar;Database=ObrasOT;User Id=gaos2;password=gaosfleetb4a$;Trusted_Connection=False;MultipleActiveResultSets=true");
+            });
+
             services.AddTransient<SeedDb>();
             services.AddScoped<IImageHelper, ImageHelper>();
             services.AddScoped<IConverterHelper, ConverterHelper>();

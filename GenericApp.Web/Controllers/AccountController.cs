@@ -45,6 +45,7 @@ namespace GenericApp.Web.Controllers
                 .ToListAsync());
         }
 
+        //-------------------------------------------------------------------------------------------------
         [Authorize(Roles = "Admin")]
         [HttpGet]
         public IActionResult Create()
@@ -60,6 +61,7 @@ namespace GenericApp.Web.Controllers
             return View(model);
         }
 
+        //-------------------------------------------------------------------------------------------------
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(AddUserViewModel model)
@@ -108,7 +110,7 @@ namespace GenericApp.Web.Controllers
             return View(model);
         }
 
-
+        //-------------------------------------------------------------------------------------------------
         public IActionResult Login()
         {
             if (User.Identity.IsAuthenticated)
@@ -141,17 +143,20 @@ namespace GenericApp.Web.Controllers
             return View(model);
         }
 
+        //-------------------------------------------------------------------------------------------------
         public async Task<IActionResult> Logout()
         {
             await _userHelper.LogoutAsync();
             return RedirectToAction("Index", "Home");
         }
 
+        //-------------------------------------------------------------------------------------------------
         public IActionResult NotAuthorized()
         {
             return View();
         }
 
+        //-------------------------------------------------------------------------------------------------
         public IActionResult Register()
         {
             AddUserViewModel model = new AddUserViewModel
@@ -165,6 +170,7 @@ namespace GenericApp.Web.Controllers
             return View(model);
         }
 
+        //-------------------------------------------------------------------------------------------------
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Register(AddUserViewModel model)
@@ -210,7 +216,7 @@ namespace GenericApp.Web.Controllers
             return View(model);
         }
 
-
+        //-------------------------------------------------------------------------------------------------
         public JsonResult GetDepartments(int countryId)
         {
             CountryEntity country = _context.Countries
@@ -224,6 +230,7 @@ namespace GenericApp.Web.Controllers
             return Json(country.Departments.OrderBy(d => d.Name));
         }
 
+        //-------------------------------------------------------------------------------------------------
         public JsonResult GetTeams(int countryId)
         {
             CountryEntity country = _context.Countries
@@ -237,6 +244,7 @@ namespace GenericApp.Web.Controllers
             return Json(country.Teams.OrderBy(d => d.Name));
         }
 
+        //-------------------------------------------------------------------------------------------------
         public JsonResult GetCities(int departmentId)
         {
             DepartmentEntity department = _context.Departments
@@ -250,6 +258,7 @@ namespace GenericApp.Web.Controllers
             return Json(department.Cities.OrderBy(c => c.Name));
         }
 
+        //-------------------------------------------------------------------------------------------------
         public async Task<IActionResult> ChangeUser()
         {
             User user = await _userHelper.GetUserAsync(User.Identity.Name);
@@ -282,6 +291,7 @@ namespace GenericApp.Web.Controllers
                 country2 = await _context.Countries.FirstOrDefaultAsync();
             }
 
+            //-------------------------------------------------------------------------------------------------
             EditUserViewModel model = new EditUserViewModel
             {
                 Address = user.Address,
@@ -307,6 +317,7 @@ namespace GenericApp.Web.Controllers
             return View(model);
         }
 
+        //-------------------------------------------------------------------------------------------------
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> ChangeUser(EditUserViewModel model)
@@ -344,6 +355,7 @@ namespace GenericApp.Web.Controllers
             return View();
         }
 
+        //-------------------------------------------------------------------------------------------------
         [HttpPost]
         public async Task<IActionResult> ChangePasswordMVC(ChangePasswordViewModel model)
         {
@@ -371,6 +383,7 @@ namespace GenericApp.Web.Controllers
             return View(model);
         }
 
+        //-------------------------------------------------------------------------------------------------
         public async Task<IActionResult> ConfirmEmail(string userId, string token)
         {
             if (string.IsNullOrEmpty(userId) || string.IsNullOrEmpty(token))
@@ -392,11 +405,14 @@ namespace GenericApp.Web.Controllers
 
             return View();
         }
+
+        //-------------------------------------------------------------------------------------------------
         public IActionResult RecoverPasswordMVC()
         {
             return View();
         }
 
+        //-------------------------------------------------------------------------------------------------
         [HttpPost]
         public async Task<IActionResult> RecoverPasswordMVC(RecoverPasswordViewModel model)
         {
@@ -425,11 +441,13 @@ namespace GenericApp.Web.Controllers
             return View(model);
         }
 
+        //-------------------------------------------------------------------------------------------------
         public IActionResult ResetPassword(string token)
         {
             return View();
         }
 
+        //-------------------------------------------------------------------------------------------------
         [HttpPost]
         public async Task<IActionResult> ResetPassword(ResetPasswordViewModel model)
         {
